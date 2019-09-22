@@ -78,16 +78,16 @@
         <div id="add-content">
             <h5>Add User</h5>
             <p>Serial Number <span class="error" id="noErr">*</span></p>
-            <input type="number" id="add-no" name="add-no" required>            
+            <input type="number" id="add-no" name="add-no" min="1" max="9999" placeholder="ex.1 2 3..." required>            
             
             <p>Name <span class="error" id="nameErr">*</span></p>
-            <input type="text" id="add-name" name="add-name" required>           
+            <input type="text" id="add-name" name="add-name"  required>           
             
             <p>Phone <span class="error" id="phoneErr">*</span></p>
-            <input type="tel" id="add-phone" name="add-phone" required>            
+            <input type="tel" id="add-phone" name="add-phone" placeholder="ex.02-12345678" required>            
             
             <p>Email<span class="error" id="emailErr">*</span></p>
-            <input type="email" id="add-mail" name="add-mail" required >       
+            <input type="email" id="add-mail" name="add-mail" placeholder="ex.abc@gmail.com" required >       
             
             <div class="btn-group">
                 <button type="submit" id="add-cancel-btn">Cancel</button>
@@ -101,16 +101,16 @@
         <div id="edit-content">
             <h5>Edit User Information</h5>
             <p>Serial Number <span class="error" id="edit-noErr"></span></p>
-            <input type="text" id="edit-no" name="edit-no" required>
+            <input type="number" id="edit-no" name="edit-no" min="1" max="9999" placeholder="ex.1 2 3..." required>
 
             <p>Name <span class="error" id="edit-nameErr"></span></p>
             <input type="text" id="edit-name" name="edit-name" required>
             
             <p>Phone <span class="error" id="edit-phoneErr"></span></p>
-            <input type="tel" id="edit-phone" name="edit-phone" required>
+            <input type="tel" id="edit-phone" name="edit-phone" placeholder="ex.02-12345678" required>
             
             <p>Email<span class="error" id="edit-emailErr"></span></p>
-            <input id="edit-mail" name="edit-mail" type="email" required >
+            <input id="edit-mail" name="edit-mail" type="email" placeholder="ex.abc@gmail.com" required >
             
             <div class="btn-group">
                 <input id="hidden-user-id" type="hidden" value="">

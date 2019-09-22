@@ -30,9 +30,11 @@ function editInfo(){
     }else{
         var regex = /[0-9]$/;
         if (regex.test(editNo.value) === false){
-            printError("edit-noErr","Please enter digit number")
+            printError("edit-noErr","Please enter digit number");
         }else if(uniqueNo.includes(editNo.value)){
-            printError("edit-noErr","Sorry, this no. already exists")
+            printError("edit-noErr","Sorry, this no. already exists");
+        }else if (editNo.value.length > 4){
+            printError("edit-noErr","Sorry, can't exceed 4 number");
         }else{
             printError("edit-noErr", "");
             editNoErr = false;
@@ -67,9 +69,9 @@ function editInfo(){
     if(editPhone.value == "") {
         printError("edit-phoneErr", "Please enter your phone number");
     } else {
-        var regex = /[0-9+-]{11}$/;
+        var regex = /^(02|03|037|04|049|05|06|07|08|082|0826|0836|089)-[0-9]{8}$/;
         if(regex.test(editPhone.value) === false) {
-            printError("edit-phoneErr", "Please enter valid phone number");
+            printError("edit-phoneErr", "not a valid number. (ex.02-12345678)");
         } else{
             printError("edit-phoneErr", "");
             editPhoneErr = false;
@@ -153,16 +155,20 @@ function addInfo(){
         uniqueNo.push(noList[i].innerHTML);
     }
 
+    
     if(addNo.value ==""){
     printError("noErr", "Please enter a serial number");
     }else{
         var regex = /[0-9]$/;
         if (regex.test(addNo.value) === false){
-            printError("noErr","Please enter digit number")
+            printError("noErr","Please enter digit number");
         }else if(uniqueNo.includes(addNo.value)){
-            printError("noErr","Sorry, this no. already exists")
-        }else{
-            printError("noErr", "");
+            printError("noErr","Sorry, this no. already exists");
+        }else if (addNo.value.length > 4){
+            printError("noErr","Sorry, can't exceed 4 number");
+        }
+        else{
+            printError("noErr", "*");
             noErr = false;
         }   
     }
@@ -184,7 +190,7 @@ function addInfo(){
             printError("nameErr", "Sorry, this name already exists");
         } 
         else {
-            printError("nameErr", "");
+            printError("nameErr", "*");
             nameErr = false;
         }
     }
@@ -193,11 +199,11 @@ function addInfo(){
     if(addPhone.value == "") {
         printError("phoneErr", "Please enter your phone number");
     } else {
-        var regex = /[0-9+-]{11}$/;
+        var regex =/^(02|03|037|04|049|05|06|07|08|082|0826|0836|089)-[0-9]{8}$/;
         if(regex.test(addPhone.value) === false) {
-            printError("phoneErr", "Please enter digit number");
+            printError("phoneErr",  "not a valid number. (ex.02-12345678)");
         } else{
-            printError("phoneErr", "");
+            printError("phoneErr", "*");
             phoneErr = false;
         }
     }
@@ -210,7 +216,7 @@ function addInfo(){
         if(regex.test(addMail.value) === false) {
             printError("emailErr", "Please enter a valid email address");
         } else{
-            printError("emailErr", "");
+            printError("emailErr", "*");
             emailErr = false;
         }
     }
@@ -218,7 +224,6 @@ function addInfo(){
     // Prevent the form from being submitted if there are any errors
     if((noErr || nameErr || emailErr || phoneErr) == true) {
         return false;
-
     } else {
     let newInfo="";
         
