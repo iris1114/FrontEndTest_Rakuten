@@ -1,6 +1,7 @@
 # CRUD data table
 
-![](https://i.imgur.com/Ddu7pNo.png)
+![](https://i.imgur.com/I2Q5JE4.png)
+
 
 ---
 
