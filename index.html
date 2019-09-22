@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
+	<title>User Management</title>
+</head>
+<body>
+
+    <header>
+        <h1>User Management  </h1>
+        <div id="add-btn">+ Add New</div>
+    </header>
+   
+    
+    <table>
+        <thead>
+            <tr>
+                <th >No.</th>
+                <th >Name</th>
+                <th >Phone</th>
+                <th >Email</th>
+                <th >edit</th>
+                <th >delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="user1" class="user-tr">
+                <td data-label="No." class="no">1</td>
+                <td data-label="Name"  class="name">User1</td>
+                <td data-label="Phone" class="phone">02-12345678</td>
+                <td data-label="Email" class="mail">aaa@mail.com</td>
+                <td data-label="edit"><i class="fas fa-edit edit-btn" id="user1"  onclick=openEditBox();></i></td>
+                <td data-label="delete"><i class="fas fa-trash-alt del-btn" id="user1" onclick=openDelBox();></i></td>
+            </tr>
+
+            <tr id="user2" class="user-tr">
+                <td data-label="No." class="no">2</td>
+                <td data-label="Name"  class="name">User2</td>
+                <td data-label="Phone" class="phone">02-12345678</td>
+                <td data-label="Email" class="mail">aaa@mail.com</td>
+                <td data-label="edit"><i class="fas fa-edit edit-btn" id="user2"  onclick=openEditBox();></i></td>
+                <td data-label="delete"><i class="fas fa-trash-alt del-btn" id="user2" onclick=openDelBox();></i></td>
+            </tr>
+
+            <tr id="user3" class="user-tr">
+                <td data-label="No." class="no">3</td>
+                <td data-label="Name"  class="name">User3</td>
+                <td data-label="Phone" class="phone">02-12345678</td>
+                <td data-label="Email" class="mail">aaa@mail.com</td>
+                <td data-label="edit"><i class="fas fa-edit edit-btn" id="user3"  onclick=openEditBox();></i></td>
+                <td data-label="delete"><i class="fas fa-trash-alt del-btn" id="user3" onclick=openDelBox();></i></td>
+            </tr>
+
+            <tr id="user4" class="user-tr">
+                <td data-label="No." class="no">4</td>
+                <td data-label="Name"  class="name">User4</td>
+                <td data-label="Phone" class="phone">02-12345678</td>
+                <td data-label="Email" class="mail">aaa@mail.com</td>
+                <td data-label="edit"><i class="fas fa-edit edit-btn" id="user4"  onclick=openEditBox();></i></td>
+                <td data-label="delete"><i class="fas fa-trash-alt del-btn" id="user4" onclick=openDelBox();></i></td>
+            </tr>
+
+            <tr id="user5" class="user-tr">
+                <td data-label="No." class="no">5</td>
+                <td data-label="Name"  class="name">User5</td>
+                <td data-label="Phone" class="phone">02-12345678</td>
+                <td data-label="Email" class="mail">aaa@mail.com</td>
+                <td data-label="edit"><i class="fas fa-edit edit-btn" id="user5"  onclick=openEditBox();></i></td>
+                <td data-label="delete"><i class="fas fa-trash-alt del-btn" id="user5" onclick=openDelBox();></i></td>
+            </tr>             
+        </tbody>
+    </table>
+
+
+    <div id="add-box" >
+        <div id="add-content">
+            <h5>Add User</h5>
+            <p>Serial Number <span class="error" id="noErr">*</span></p>
+            <input type="number" id="add-no" name="add-no" required>            
+            
+            <p>Name <span class="error" id="nameErr">*</span></p>
+            <input type="text" id="add-name" name="add-name" required>           
+            
+            <p>Phone <span class="error" id="phoneErr">*</span></p>
+            <input type="tel" id="add-phone" name="add-phone" required>            
+            
+            <p>Email<span class="error" id="emailErr">*</span></p>
+            <input type="email" id="add-mail" name="add-mail" required >       
+            
+            <div class="btn-group">
+                <button type="submit" id="add-cancel-btn">Cancel</button>
+                <button type="submit" id="add-save-btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="edit-box" >
+        <div id="edit-content">
+            <h5>Edit User Information</h5>
+            <p>Serial Number <span class="error" id="edit-noErr"></span></p>
+            <input type="text" id="edit-no" name="edit-no" required>
+
+            <p>Name <span class="error" id="edit-nameErr"></span></p>
+            <input type="text" id="edit-name" name="edit-name" required>
+            
+            <p>Phone <span class="error" id="edit-phoneErr"></span></p>
+            <input type="tel" id="edit-phone" name="edit-phone" required>
+            
+            <p>Email<span class="error" id="edit-emailErr"></span></p>
+            <input id="edit-mail" name="edit-mail" type="email" required >
+            
+            <div class="btn-group">
+                <input id="hidden-user-id" type="hidden" value="">
+                <button id="edit-cancel-btn">Cancel</button>
+                <button id="edit-save-btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="del-box">
+        <div id="del-content">
+            <h5>  Are you sure want to delete?</h5> 
+            <p>Once deleted, you will not be able to recover this imaginary file!</p>
+            <div class="btn-group">
+                <button id="del-cancel-btn">Cancel</button>
+                <button id="del-ok-btn">Ok</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
